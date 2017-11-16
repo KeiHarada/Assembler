@@ -87,3 +87,7 @@ void Sensor::setSLOPE(int key, double x){
 void Sensor::setSEGMENT(int begin, int end){
   segment[begin] = end;
 }
+
+void Sensor::setCLUSTER(int x, int y){
+  cluster[x] = y;
+}

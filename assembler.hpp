@@ -46,6 +46,7 @@ private:
 	map<int,int> interval;
 	map<int,int> segment;
 	map<int,double> slope;
+	map<int,int> cluster;
 
 
 public:
@@ -69,6 +70,7 @@ public:
 	void setINTERVAL(int begin, int end);
 	void setSEGMENT(int begin, int end);
 	void setSLOPE(int key, double x);
+	void setCLUSTER(int x, int y);
 };
 
 #endif

@@ -2,42 +2,44 @@
 
 /* prototype declaring of functions */
 vector<int> sortSlope(Sensor);
-int calcCenter(Senseor s, int prev);
 
 void clusteringSegment(Sensor (&s)[M]){
-  vector<int> sequence;
-  int y, y_prev;
+  vector<int> slope;
+  vector<int>::iterator slope_itr,y,y_prev,i;
+  double a,b;
   for(int m=0;m<M;m++){
-    sequence = sortSlope(s[m]);
-    auto itr = sequence.begin();
-    y = -1;
-    y_prev = *itr;
-    while(itr != sequence.end()){
-      while(y != y_prev){
-        y = calcCenter(s[m].getSEGMENT(),y_prev);
-      }
-
+    slope = sortSlope(s[m]);
+    slope_itr = slope.begin();
+    while(slope_itr != slope.end()){
+      y = slope_itr;
+      do {
+        y_prev = y;
+        for(i=y-W;i<=y+W;i++){
+          if(i >= slope.begin() && i < slope.end()){
+            a += (s[m].getSEGMENT_END(*slope_itr)-*slope_itr)*(s[m].getSLOPE_VALUE(*slope_itr));
+            b += (s[m].getSEGMENT_END(*slope_itr)-*slope_itr);
+          }
+        }
+        y = slope.begin() + (int)(a/b);
+      } while(y != y_prev);
+      s[m].setCLUSTER(*slope_itr,*y);
+      slope_itr++;
     }
   }
 }
 
 vector<int> sortSlope(Sensor s){
- vector<int> vec;
- map<int,int> segment = s.getSEGMENT();
- map<int,double> slope = s.getSLOPE();
- auto itr = segment.begin();
- while(itr != segment.end()){
-   vec.push_back(itr->first);
-   itr++;
- }
- return vec;
-}
-
-int calcCenter(map<int> segment, int prev){
-  int y;
-  for(int i=prev-W;i<=prev+W;i++){
-    if()
-  cout << endl;
+  vector<int> vec;
+  map<int,int> segment = s.getSEGMENT();
+  auto segment_itr = segment.begin();
+  while(segment_itr != segment.end()){
+    auto p = vec.end();
+    p--;
+    while(p != vec.begin() && s.getSLOPE_VALUE(segment_itr->first) < s.getSLOPE_VALUE(*p)){
+      p--;
+    }
+    vec.insert(p,segment_itr->first);
+    segment_itr++;
   }
-  return y;
+  return vec;
 }
