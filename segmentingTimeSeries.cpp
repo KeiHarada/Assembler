@@ -1,5 +1,10 @@
 #include "assembler.hpp"
 
+/* ------------------------- */
+// threshold for segmenting time seriese
+const static double MAX_ERROR = 30.0;
+/* ------------------------- */
+
 /* prototype declaring of the functions */
 void segmenting(Sensor &,int,int);
 

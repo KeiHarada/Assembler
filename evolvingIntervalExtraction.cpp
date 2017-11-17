@@ -1,5 +1,10 @@
 #include "assembler.hpp"
 
+/* parameter */
+// threshold for wavelet cofficient
+const static double DELTA = 30.0;
+const static double MINI_LEVEL = 0.8;
+
 /* prototype declaring of the functions */
 void wavelet(Sensor &,int,int);
 void identifyInterval(Sensor &);

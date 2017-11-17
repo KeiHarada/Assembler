@@ -5,6 +5,7 @@ void inputData(Sensor (&)[M]);
 void outputData(Sensor (&)[M]);
 void evolvingIntervalExtraction(Sensor (&)[M]);
 void evolvingIntervalSegmenting(Sensor (&)[M]);
+void clusteringSegment(Sensor (&)[M]);
 
 int main(){
 	Sensor sensor[M];
@@ -14,6 +15,8 @@ int main(){
 	cout << "evolving interval have been extracted." << endl;
 	evolvingIntervalSegmenting(sensor);
 	cout << "evolving interval have been segmented." << endl;
+	clusteringSegment(sensor);
+	cout << "the segments have been clusterd" << endl;
 
 	outputData(sensor);
 

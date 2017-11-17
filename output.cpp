@@ -5,6 +5,7 @@ void showSensorData(Sensor);
 void showEvolvingTimestamp(Sensor);
 void showEvolvingInterval(Sensor);
 void showEvolvingSegment(Sensor);
+void showSegmentCluster(Sensor);
 void exportCsvFile(Sensor (&)[M]);
 
 /* main */
@@ -13,11 +14,11 @@ void outputData(Sensor (&s)[M]){
 	int number;
 	while(mode != -1){
 		cout << endl << "please select the output mode"
-         << endl << "1:data, 2:evolving, 3:interval, 4:segment, 5:export, -1:exit "
+         << endl << "1:data, 2:evolving, 3:interval, 4:segment, 5:cluster, 6:export, -1:exit "
          << endl << "mode = " ;
 		cin >> mode;
     if(mode == -1) break;
-    if(mode < 5){
+    if(mode < 6){
       cout << "please type the sensor number ( 0 ~ 179 ) : ";
       cin >> number;
     }
@@ -26,7 +27,8 @@ void outputData(Sensor (&s)[M]){
       case 2: showEvolvingTimestamp(s[number]); break;
       case 3: showEvolvingInterval(s[number]); break;
       case 4: showEvolvingSegment(s[number]); break;
-      case 5: exportCsvFile(s); break;
+      case 5: showSegmentCluster(s[number]); break;
+      case 6: exportCsvFile(s); break;
       default : cout << "mode number is wrong" << endl; break;
     }
 	}
@@ -71,14 +73,12 @@ void showEvolvingInterval(Sensor s){
 void showEvolvingSegment(Sensor s){
   map<int,int> interval = s.getINTERVAL();
   map<int,int> segment = s.getSEGMENT();
-
-
   auto interval_itr = interval.begin();
   while(interval_itr != interval.end()){
     cout << interval_itr->first << " --> " << interval_itr->second << endl;
     int i = interval_itr->first;
     while(i < interval_itr->second){
-      cout << " | " << i << " --> " << segment[i] << " slope = " << s.getSLOPE(i)<< endl;
+      cout << " | " << i << " --> " << segment[i] << " slope = " << s.getSLOPE_VALUE(i)<< endl;
       i = segment[i];
     }
     cout << endl;
@@ -87,6 +87,26 @@ void showEvolvingSegment(Sensor s){
   cout << "----------------------------------------" << endl
        << "ID = " << s.getID() << endl
        << segment.size() << " segments" << endl
+       << "----------------------------------------" << endl;
+}
+
+void showSegmentCluster(Sensor s){
+  multimap<double,int> cluster = s.getCLUSTER();
+  auto cluster_itr = cluster.begin();
+  double prev = 0.0;
+  int count = 0;
+  while(cluster_itr != cluster.end()){
+    cout << cluster_itr->first << " -> " << cluster_itr->second << endl;
+    if(cluster_itr->first != prev){
+      count++;
+      prev = cluster_itr->first;
+    }
+    cluster_itr++;
+  }
+  cout << "----------------------------------------" << endl
+       << "ID = " << s.getID() << endl
+       <<  s.getSEGMENT().size() << " segments" <<endl
+       << count << " clusters" << endl
        << "----------------------------------------" << endl;
 }
 

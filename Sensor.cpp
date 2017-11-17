@@ -16,6 +16,7 @@ int Sensor::getSEGMENT_END(int begin){ return segment[begin]; }
 map<int,int> Sensor::getSEGMENT(){ return segment; }
 double Sensor::getSLOPE_VALUE(int key){ return slope[key]; }
 map<int,double> Sensor::getSLOPE(){ return slope;}
+multimap<double,int> Sensor::getCLUSTER(){ return cluster; }
 
 /* setter*/
 void Sensor::setLocation(string str){
@@ -88,6 +89,19 @@ void Sensor::setSEGMENT(int begin, int end){
   segment[begin] = end;
 }
 
-void Sensor::setCLUSTER(int x, int y){
-  cluster[x] = y;
+void Sensor::setCLUSTER(double mode, int t, double delta_c){
+  if(cluster.empty()){
+    cluster.insert(make_pair(mode,t));
+  }else{
+    auto itr = cluster.begin();
+    double mini = 10000.0;
+    while(itr != cluster.end()){
+      if(fabs(mode-itr->first) < delta_c && fabs(mode-itr->first) < fabs(mode-mini)){
+        mini = itr->first;
+      }
+      itr = cluster.upper_bound(itr->first);
+    }
+    if(mini == 10000.0) mini = mode;
+    cluster.insert(make_pair(mini,t));
+  }
 }

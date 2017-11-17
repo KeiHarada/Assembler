@@ -13,26 +13,10 @@
 #include <algorithm>
 
 /* parameter */
-/* ------------------------ */
 // the number of sensors
 const static int M = 180;
-/* ------------------------ */
 // the number of measurements
 const static int N = 2048;
-/* ------------------------- */
-// threshold for wavelet cofficient
-// @ evolvingIntervalExtraction.cpp -> wavlet()
-const static double DELTA = 30.0;
-const static double MINI_LEVEL = 0.8;
-/* ------------------------- */
-// threshold for segmenting time seriese
-// @ segmentingTimeSeries.cpp -> segmentin()
-const static double MAX_ERROR = 30.0;
-/* ------------------------- */
-// bandwidth for mean shift
-// @ clusteringSegment.cpp -> calcCenter()
-const static int W = 10;
-/* ------------------------- */
 
 using namespace std;
 
@@ -46,7 +30,7 @@ private:
 	map<int,int> interval;
 	map<int,int> segment;
 	map<int,double> slope;
-	map<int,int> cluster;
+	multimap<double,int> cluster;
 
 
 public:
@@ -63,6 +47,7 @@ public:
 	map<int,int> getSEGMENT();
 	double getSLOPE_VALUE(int key);
 	map<int,double> getSLOPE();
+	multimap<double,int> getCLUSTER();
   /* setter*/
   void setLocation(string str);
   int setDATA(int sensorID, string str);
@@ -70,7 +55,7 @@ public:
 	void setINTERVAL(int begin, int end);
 	void setSEGMENT(int begin, int end);
 	void setSLOPE(int key, double x);
-	void setCLUSTER(int x, int y);
+	void setCLUSTER(double mode, int t, double delta_c);
 };
 
 #endif
