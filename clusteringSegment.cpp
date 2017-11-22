@@ -7,6 +7,8 @@ const static int W = 10;
 const static double DELTA_Y = 1.0;
 // clusteriring threshould
 const static double DELTA_C = 3.0;
+// minimum shupport
+const static int THETA_C = 100;
 
 
 /* prototype declaring of functions */
@@ -20,6 +22,11 @@ void clusteringSegment(Sensor (&s)[M]){
   double delta_prev;
   for(int m=0;m<M;m++){
     sortedSlope = sortSlope(s[m]);
+    if(m == 0){
+      for(auto itr = sortedSlope.begin();itr!=sortedSlope.end();itr++){
+        cout<< *itr << " " << s[m].getSLOPE_VALUE(*itr) << endl;
+      }
+    }
     for(slope_index=0;slope_index < int(sortedSlope.size());slope_index++){
       y = s[m].getSLOPE_VALUE(sortedSlope[slope_index]);
       y_index = slope_index;
@@ -39,6 +46,7 @@ void clusteringSegment(Sensor (&s)[M]){
       } while(fabs(fabs(y-y_prev)-delta_prev) > DELTA_Y);
       s[m].setCLUSTER(y,sortedSlope[slope_index],DELTA_C);
     }
+    //s[m].fixCLUSTER(THETA_C);
   }
 }
 

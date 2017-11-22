@@ -96,11 +96,16 @@ void showSegmentCluster(Sensor s){
   double prev = 0.0;
   int count = 0;
   while(cluster_itr != cluster.end()){
-    cout << cluster_itr->first << " -> " << cluster_itr->second << endl;
     if(cluster_itr->first != prev){
       count++;
+      cout << "cluster " << count
+           << " lower= " << s.getLOWER(cluster_itr->first)
+           << " upper= " << s.getUPPER(cluster_itr->first)
+           << endl;
       prev = cluster_itr->first;
     }
+    cout << "| " << cluster_itr->second
+         << " slope= " << s.getSLOPE_VALUE(cluster_itr->second)<< endl;
     cluster_itr++;
   }
   cout << "----------------------------------------" << endl

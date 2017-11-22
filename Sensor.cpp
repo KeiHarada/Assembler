@@ -17,6 +17,8 @@ map<int,int> Sensor::getSEGMENT(){ return segment; }
 double Sensor::getSLOPE_VALUE(int key){ return slope[key]; }
 map<int,double> Sensor::getSLOPE(){ return slope;}
 multimap<double,int> Sensor::getCLUSTER(){ return cluster; }
+double Sensor::getUPPER(double key){ return upper[key]; }
+double Sensor::getLOWER(double key){ return lower[key]; }
 
 /* setter*/
 void Sensor::setLocation(string str){
@@ -103,5 +105,35 @@ void Sensor::setCLUSTER(double mode, int t, double delta_c){
     }
     if(mini == 10000.0) mini = mode;
     cluster.insert(make_pair(mini,t));
+  }
+}
+
+void Sensor::fixCLUSTER(int theta_c){
+  auto cluster_itr = cluster.begin();
+  double value = cluster_itr->first;
+  double prev = value;
+  int count = 0;
+  double mini = slope[cluster_itr->second];
+  double max = mini;
+  while(cluster_itr != cluster.end()){
+    if(value != prev){
+      if(count < theta_c){
+        cluster.erase(prev);
+      }else{
+        upper[prev] = max;
+        lower[prev] = mini;
+      }
+      count = 0;
+      mini = slope[cluster_itr->first];
+      max = mini;
+      prev = value;
+    }
+    for(int i=cluster_itr->second;i<=segment[cluster_itr->second];i++){
+      count++;
+    }
+    if(mini > slope[cluster_itr->second]) mini = slope[cluster_itr->second];
+    if(max < slope[cluster_itr->second]) max = slope[cluster_itr->second];
+    cluster_itr++;
+    value = cluster_itr->first;
   }
 }

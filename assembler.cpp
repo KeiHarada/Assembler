@@ -6,6 +6,8 @@ void outputData(Sensor (&)[M]);
 void evolvingIntervalExtraction(Sensor (&)[M]);
 void evolvingIntervalSegmenting(Sensor (&)[M]);
 void clusteringSegment(Sensor (&)[M]);
+//void findingSCP(Sensor (&)[M]);
+
 
 int main(){
 	Sensor sensor[M];
@@ -17,6 +19,7 @@ int main(){
 	cout << "evolving interval have been segmented." << endl;
 	clusteringSegment(sensor);
 	cout << "the segments have been clusterd" << endl;
+	//findingSCP(sensor);
 
 	outputData(sensor);
 
