@@ -92,20 +92,7 @@ void Sensor::setSEGMENT(int begin, int end){
 }
 
 void Sensor::setCLUSTER(double mode, int t, double delta_c){
-  if(cluster.empty()){
     cluster.insert(make_pair(mode,t));
-  }else{
-    auto itr = cluster.begin();
-    double mini = 10000.0;
-    while(itr != cluster.end()){
-      if(fabs(mode-itr->first) < delta_c && fabs(mode-itr->first) < fabs(mode-mini)){
-        mini = itr->first;
-      }
-      itr = cluster.upper_bound(itr->first);
-    }
-    if(mini == 10000.0) mini = mode;
-    cluster.insert(make_pair(mini,t));
-  }
 }
 
 void Sensor::fixCLUSTER(int theta_c){
