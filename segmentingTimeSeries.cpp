@@ -1,11 +1,12 @@
 #include "assembler.hpp"
 
 /* parameter */
-// threshold for segmenting time seriese
+// threshold for segmenting time series
 const static double MAX_ERROR = 30.0;
 
 /* prototype declaring of the functions */
 void segmenting(Sensor &,int,int);
+int isZero(double);
 
 /* main */
 void evolvingIntervalSegmenting(Sensor (&s)[M]){
@@ -75,11 +76,19 @@ void segmenting(Sensor &s, int begin, int end){
       seg_mini = seg_itr->first;
     }
 
-    /* set fixed segments on this interval */
+    /* set segments on this interval */
+    double delta = 0.00000001;
     for(auto itr = seg.begin();itr != seg.end();itr++){
-      s.setSEGMENT(itr->first,itr->second);
       double slope = double(s.getPM25()[itr->second]-s.getPM25()[itr->first])/(itr->second-itr->first);
-      s.setSLOPE(itr->first,slope);
+      // if the slope value doesn't equal to zero
+      if(isZero(slope) == 0) {
+        s.setSEGMENT(itr->first, itr->second);
+        s.setSLOPE(itr->first, slope);
+      }
     }
   }
+}
+
+int isZero(double x) {
+  return (x>=0 && x<DBL_MIN*100);
 }

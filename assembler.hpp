@@ -1,8 +1,10 @@
 #ifndef ASSEMBLER_HPP
 #define ASSEMBLER_HPP
 #define _USE_MATH_DEFINES
+
 /* header file */
 #include <cstdlib>
+#include <cfloat>
 #include <string>
 #include <fstream>
 #include <iostream>
@@ -14,7 +16,7 @@
 
 /* parameter */
 // the number of sensors
-const static int M = 180;
+const static int M = 10;
 // the number of measurements
 const static int N = 2048;
 
@@ -31,11 +33,12 @@ private:
 	map<int,int> segment;
 	map<int,double> slope;
 	multimap<double,int> cluster;
-	map<double,double> upper;
-	map<double,double> lower;
+	multimap<int,int> cluster_final;
+	map<int,double> upper;
+	map<int,double> lower;
 public:
   /* accessor */
-  int getID();
+	int getID();
   double getLAT();
   double getLON();
   vector<int> getTIME();
@@ -47,9 +50,11 @@ public:
 	map<int,int> getSEGMENT();
 	double getSLOPE_VALUE(int key);
 	map<int,double> getSLOPE();
-	multimap<double,int> getCLUSTER();
-	double getUPPER(double key);
-	double getLOWER(double key);
+	multimap<int,int> getCLUSTER_FINAL();
+	vector<int> getCLUSTER_TIMESTAMP(int mode);
+	int getCLUSTER_NUM();
+	double getUPPER(int mode);
+	double getLOWER(int mode);
   /* setter*/
   void setLocation(string str);
   int setDATA(int sensorID, string str);
@@ -57,28 +62,30 @@ public:
 	void setINTERVAL(int begin, int end);
 	void setSEGMENT(int begin, int end);
 	void setSLOPE(int key, double x);
-	void setCLUSTER(double mode, int t, double delta_c);
-	void fixCLUSTER(int theta_c);
+	void setCLUSTER(double mode, int t);
+	void fixCLUSTER(int theta_c, double delta_c);
 };
 
 class SCP{
 private:
 	bool flag;
-	double lower;
-	double upper;
 	vector<int> timestamp;
 	vector<int> sensors;
+	vector<double> upper;
+	vector<double> lower;
 public:
-	/* construcor */
+	/* constructor */
 	SCP();
 	/* accessor */
 	bool getFLAG();
-	double getLOWER();
-	double getUPPER();
 	vector<int> getTIMESTAMP();
 	vector<int> getSENSORS();
+	vector<double> getUPPER();
+	vector<double> getLOWER();
 	/* setter */
-	void setSCP();
+	void setFLAG(bool T);
+	void setSENSOR(int number, double most, double least);
+	void remSENSOR();
 };
 
 #endif

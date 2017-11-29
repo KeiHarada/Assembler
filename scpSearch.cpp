@@ -1,105 +1,135 @@
 #include "assembler.hpp"
 
 /* parameter */
-// threshould for neighbor nodes [km]
+// threshold for neighbor nodes [km]
 const static double H = 30.0;
-
+// minimum support
+const static int MINI_SUP = 2;
 /* global */
 static map<int,int> v;
 
 /* prototype declaring of functions */
-void scpSearch(array<array<double,M>,M>,vector<int>,SCP &);
-vector<int> getNeighbors(array<array<double,M>,M>,vector<int>);
-bool checkMember(vector<int>,int);
-bool checkParent(array<array<double,M>,M>,vector<int>,vector<int>);
-bool checkConnection(array<array<double,M>,M>,vector<int>);
-void visit(array<array<double,M>,M>,vector<int>,int);
-void outputSCP(SCP);
+void scpSearch(Sensor (&)[M],vector<int>,vector<SCP>);
+void setSCP(Sensor (&)[M],vector<int>,vector<SCP> &);
+void intersecting(Sensor (&)[M],vector<int>,vector<int>,int,vector<SCP> &,SCP);
+vector<int> getNeighbors(Sensor (&)[M],vector<int>);
+bool checkParent(Sensor (&)[M],vector<int>,vector<int>);
+bool checkConnection(Sensor (&)[M],vector<int>);
+void visit(Sensor (&)[M],vector<int>,int);
+void outputSCP(vector<SCP>);
 double dist(double,double,double,double);
 double deg2rad(double);
 
 /* main */
 void findingSCP(Sensor (&s)[M]){
-  array<array<double,M>,M> distance;
-  for(int i=0;i<M;i++){
-    for(int j=i;j<M;j++){
-      if(i==j) distance[i][j] = 0.0;
-      distance[i][j] = dist(s[i].getLAT(),s[i].getLON(),s[j].getLAT(),s[j].getLON());
-      distance[j][i] = distance[i][j];
-    }
-  }
-  SCP scp_init;
+	vector<SCP> scp_init;
   vector<int> x;
-  scpSearch(distance,x,scp_init);
-
+  scpSearch(s,x,scp_init);
 }
 
-void scpSearch(array<array<double,M>,M> distance, vector<int> x, SCP &scp){
-  if(scp.getFLAG()){
+void scpSearch(Sensor (&s)[M], vector<int> x, vector<SCP> scp){
+  /* output spatial co-evolving pattern */
+  if(!x.empty()){
     outputSCP(scp);
   }
-  vector<int> ns = getNeighbors(distance,x);
+
+	/* find neighbor nodes */
+  vector<int> ns = getNeighbors(s,x);
+
+  /* search scp */
   for(auto ns_itr=ns.begin();ns_itr!=ns.end();ns_itr++){
-    vector<int> y = x;
-    y.push_back(*ns_itr);
+		vector<int> y = x;
+		y.push_back(*ns_itr);
     sort(y.begin(),y.end());
-    if(checkParent(distance,x,y)){
-      SCP scp_y;
-      scp_y.setSCP();
-      if(scp_y.getFLAG()) scpSearch(distance,y,scp_y);
+
+    /* if x is a parent of y */
+    if(checkParent(s,x,y)){
+			vector<SCP> scp_y;
+			setSCP(s,y,scp_y);
+			/* if the scp was found on y */
+      if(!scp_y.empty()) scpSearch(s,y,scp_y);
     }
   }
 }
 
-vector<int> getNeighbors(array<array<double,M>,M> distance, vector<int> x){
+void setSCP(Sensor (&s)[M], vector<int> graph, vector<SCP> &scp_y){
+	/* start as graph_index = 0 */
+	for(int cluster=0;cluster<s[graph[0]].getCLUSTER_NUM();cluster++){
+		SCP scp;
+		scp.setSENSOR(graph[0],s[graph[0]].getUPPER(cluster),s[graph[0]].getLOWER(cluster));
+		vector<int> timestamp = s[graph[0]].getCLUSTER_TIMESTAMP(cluster);
+		if(int(graph.size()) > 1){
+			intersecting(s,graph,timestamp,1,scp_y,scp);
+		}else{
+			scp_y.push_back(scp);
+		}
+	}
+}
+
+void intersecting(Sensor (&s)[M], vector<int> graph, vector<int> timestamp1, int graph_index, vector<SCP> &scp_y, SCP scp){
+	for(int cluster=0;cluster<s[graph[graph_index]].getCLUSTER_NUM();cluster++){
+		vector<int> timestamp2 = s[graph[graph_index]].getCLUSTER_TIMESTAMP(cluster);
+		vector<int> intersection;
+		set_intersection(timestamp1.begin(),timestamp1.end(),timestamp2.begin(),timestamp2.end(),inserter(intersection,intersection.end()));
+		if(int(intersection.size()) >= MINI_SUP){
+			scp.setSENSOR(graph[graph_index],s[graph[graph_index]].getUPPER(cluster),s[graph[graph_index]].getLOWER(cluster));
+			if(graph_index+1 < int(graph.size())){
+				intersecting(s,graph,intersection,graph_index+1,scp_y,scp);
+			}else{
+				scp_y.push_back(scp);
+				scp.remSENSOR();
+			}
+		}
+	}
+}
+
+vector<int> getNeighbors(Sensor (&s)[M], vector<int> x){
   vector<int> neighbors;
   if(x.empty()){
     for(int i=0;i<M;i++){
-      neighbors.push_back(i);
+      	neighbors.push_back(i);
     }
   }else{
-    for(auto x_itr=x.begin();x_itr!=x.end();x_itr++){
-      for(int i=0;i<M;i++){
-        if(!checkMember(x,i)){
-        if(distance[*x_itr][i] <= H){
+		for(auto x_itr=x.begin();x_itr!=x.end();x_itr++){
+			for(int i=0;i<M;i++){
+				double h =dist(s[*x_itr].getLAT(),s[*x_itr].getLON(),s[i].getLAT(),s[i].getLON());
+				if(dist(s[*x_itr].getLAT(),s[*x_itr].getLON(),s[i].getLAT(),s[i].getLON()) <= H){
+				if(find(x.begin(),x.end(),i) == x.end()){
         if(find(neighbors.begin(),neighbors.end(),i) == neighbors.end()){
-            neighbors.push_back(i);
-        }
-        }
-        }
-      }
-    }
+					neighbors.push_back(i);
+				}
+				}
+				}
+			}
+		}
   }
   sort(neighbors.begin(),neighbors.end());
   return neighbors;
 }
 
-bool checkMember(vector<int> x, int i){
-  for(auto x_itr=x.begin();x_itr!=x.end();x_itr++){
-    if(*x_itr == i) return true;
-  }
-  return false;
+bool checkParent(Sensor (&s)[M], vector<int> parent, vector<int> child){
+	if(parent.empty()){
+		return true;
+	}else{
+		for(auto child_itr=child.begin();child_itr!=child.end();child_itr++){
+			int keep = *child_itr;
+			child.erase(child_itr);
+			if(checkConnection(s,child)){
+				if(child == parent){
+					return true;
+				}else{
+					return false;
+				}
+			}else{
+				child.insert(child_itr,keep);
+			}
+		}
+	}
 }
 
-bool checkParent(array<array<double,M>,M> distance, vector<int> parent, vector<int> child){
-  for(auto child_itr=child.begin();child_itr!=child.end();child_itr++){
-    int keep = *child_itr;
-    child.erase(child_itr);
-    if(checkConnection(distance,child)){
-      if(child == parent){
-        return true;
-      }else{
-        return false;
-      }
-    }else{
-      child.insert(child_itr,keep);
-    }
-  }
-}
-
-bool checkConnection(array<array<double,M>,M> distance, vector<int> graph){
+bool checkConnection(Sensor (&s)[M], vector<int> graph){
   v.clear();
-  visit(distance,graph,graph[0]);
+  visit(s,graph,graph[0]);
   for(auto graph_itr=graph.begin();graph_itr!=graph.end();graph_itr++){
     if(v.find(*graph_itr) == v.end()){
       return false;
@@ -108,17 +138,28 @@ bool checkConnection(array<array<double,M>,M> distance, vector<int> graph){
   return true;
 }
 
-void visit(array<array<double,M>,M> distance, vector<int> graph, int start){
+void visit(Sensor (&s)[M], vector<int> graph, int start){
   v[start] = 1;
   for(auto graph_itr=graph.begin();graph_itr!=graph.end();graph_itr++){
-    if(distance[start][*graph_itr] >= H && v.find(*graph_itr) == v.end()){
-      visit(distance,graph,*graph_itr);
+    if(dist(s[start].getLAT(),s[start].getLON(),s[*graph_itr].getLAT(),s[*graph_itr].getLON()) <= H && v.find(*graph_itr) == v.end()){
+      visit(s,graph,*graph_itr);
     }
   }
 }
 
-void outputSCP(SCP scp){
-
+void outputSCP(vector<SCP> scp){
+	int scp_num = int(scp.size());
+	for(int i=0;i<scp_num;i++){
+		vector<int> sensors = scp[i].getSENSORS();
+		vector<double> upper = scp[i].getUPPER();
+		vector<double> lower = scp[i].getLOWER();
+		int sensor_num = int(sensors.size());
+		cout << "SCP( k = " << sensors.size() << " )" << endl;
+		for(int j=0;j<sensor_num;j++){
+			cout << "| s" << sensors[j] << " " << lower[j] << "[/h] ~ " << upper[j] << "[/h]" << endl;
+		}
+		cout << "| -------------------------------" << endl;
+	}
 }
 
 double dist(double lat1, double lon1, double lat2, double lon2){

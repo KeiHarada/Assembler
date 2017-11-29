@@ -1,7 +1,7 @@
 #include "assembler.hpp"
 
 /* parameter */
-// threshold for wavelet cofficient
+// threshold for wavelet coefficient
 const static double DELTA = 30.0;
 const static double MINI_LEVEL = 0.8;
 

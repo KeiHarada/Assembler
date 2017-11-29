@@ -1,16 +1,26 @@
-if(cluster.empty()){
-  cluster.insert(make_pair(mode,t));
-}else{
-  auto itr = cluster.begin();
-  double mini = 10000.0;
-  while(itr != cluster.end()){
-    if(fabs(mode-itr->first) < delta_c && fabs(mode-itr->first) < fabs(mode-mini)){
-      mini = itr->first;
-    }
-    itr = cluster.upper_bound(itr->first);
-  }
-  if(mini == 10000.0) mini = mode;
-  cluster.insert(make_pair(mini,t));
+void intersecting(Sensor (&s)[M], vector<int> graph, vector<int> timestamp1, int graph_index, int mode, vector<SCP> &scp_y, SCP scp){
+	if(graph_index == 0){
+		scp.setSENSOR(graph[graph_index],s[graph[graph_index]].getUPPER(mode),s[graph[graph_index]].getLOWER(mode));
+		if(graph_index != int(graph.size())-1){
+			vector<int> timestamp = s[graph[0]].getCLUSTER_TIMESTAMP(mode);
+			intersecting(s,graph,timestamp,graph_index+1,mode,scp_y,scp);
+		}else{
+			scp_y.push_back(scp);
+		}
+	}else{
+		vector<int> timestamp2 = s[graph[graph_index]].getCLUSTER_TIMESTAMP(mode);
+		vector<int> intersection;
+		set_intersection(timestamp1.begin(),timestamp1.end(),timestamp2.begin(),timestamp2.end(),inserter(intersection,intersection.end()));
+		if(int(intersection.size()) >= MINI_SUP){
+			scp.setSENSOR(graph[graph_index],s[graph[graph_index]].getUPPER(mode),s[graph[graph_index]].getLOWER(mode));
+			if(graph_index != int(graph.size())-1){
+				while(mode < s[graph[graph_index]].getCLUSTER_NUM()){
+					intersecting(s,graph,intersection,graph_index+1,mode,scp_y,scp);
+					mode++;
+				}
+			}else{
+				scp_y.push_back(scp);
+			}
+		}
+	}
 }
-
- && fabs(fabs(y-y_prev)-delta_prev) != 0

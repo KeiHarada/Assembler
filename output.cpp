@@ -91,21 +91,21 @@ void showEvolvingSegment(Sensor s){
 }
 
 void showSegmentCluster(Sensor s){
-  multimap<double,int> cluster = s.getCLUSTER();
+  multimap<int,int> cluster = s.getCLUSTER_FINAL();
   auto cluster_itr = cluster.begin();
-  double prev = 0.0;
+  int prev = -1;
   int count = 0;
   while(cluster_itr != cluster.end()){
     if(cluster_itr->first != prev){
       count++;
-      cout << "cluster " << count
-           //<< " lower= " << s.getLOWER(cluster_itr->first)
-           //<< " upper= " << s.getUPPER(cluster_itr->first)
+      cout << "cluster " << cluster_itr->first
+           << " lower= " << s.getLOWER(cluster_itr->first)
+           << " upper= " << s.getUPPER(cluster_itr->first)
            << endl;
-      prev = cluster_itr->first;
     }
     cout << "| " << cluster_itr->second
-         << "\tslope= " << s.getSLOPE_VALUE(cluster_itr->second) << "\tscore= " << cluster_itr->first << endl;
+         << "\tslope= " << s.getSLOPE_VALUE(cluster_itr->second) << endl;
+    prev = cluster_itr->first;
     cluster_itr++;
   }
   cout << "----------------------------------------" << endl
