@@ -10,11 +10,11 @@ CMakeFiles/assembler.dir/Sensor.cpp.obj: ../assembler.hpp
 CMakeFiles/assembler.dir/assembler.cpp.obj: ../assembler.cpp
 CMakeFiles/assembler.dir/assembler.cpp.obj: ../assembler.hpp
 
-CMakeFiles/assembler.dir/clusteringSegment.cpp.obj: ../assembler.hpp
-CMakeFiles/assembler.dir/clusteringSegment.cpp.obj: ../clusteringSegment.cpp
+CMakeFiles/assembler.dir/clustering.cpp.obj: ../assembler.hpp
+CMakeFiles/assembler.dir/clustering.cpp.obj: ../clustering.cpp
 
-CMakeFiles/assembler.dir/evolvingIntervalExtraction.cpp.obj: ../assembler.hpp
-CMakeFiles/assembler.dir/evolvingIntervalExtraction.cpp.obj: ../evolvingIntervalExtraction.cpp
+CMakeFiles/assembler.dir/extracting.cpp.obj: ../assembler.hpp
+CMakeFiles/assembler.dir/extracting.cpp.obj: ../extracting.cpp
 
 CMakeFiles/assembler.dir/input.cpp.obj: ../assembler.hpp
 CMakeFiles/assembler.dir/input.cpp.obj: ../input.cpp
@@ -25,6 +25,6 @@ CMakeFiles/assembler.dir/output.cpp.obj: ../output.cpp
 CMakeFiles/assembler.dir/scpSearch.cpp.obj: ../assembler.hpp
 CMakeFiles/assembler.dir/scpSearch.cpp.obj: ../scpSearch.cpp
 
-CMakeFiles/assembler.dir/segmentingTimeSeries.cpp.obj: ../assembler.hpp
-CMakeFiles/assembler.dir/segmentingTimeSeries.cpp.obj: ../segmentingTimeSeries.cpp
+CMakeFiles/assembler.dir/segmenting.cpp.obj: ../assembler.hpp
+CMakeFiles/assembler.dir/segmenting.cpp.obj: ../segmenting.cpp
 

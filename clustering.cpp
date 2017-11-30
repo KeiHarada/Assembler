@@ -4,11 +4,11 @@
 // bandwidth for mean shift
 const static int W = 10.0;
 // convergence threshold
-const static double DELTA_Y = 6.5;
+const static double DELTA_Y = 6.5; // we have to tune.
 // clustering threshold
-const static double DELTA_C = 3.0;
+const static double DELTA_C = 3.0; // we have to tune.
 // minimum support
-const static int THETA_C = 10;
+const static int THETA_C = 10; // we have to tune.
 
 
 /* prototype declaring of functions */

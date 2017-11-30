@@ -4,9 +4,10 @@
 // threshold for neighbor nodes [km]
 const static double H = 30.0;
 // minimum support
-const static int MINI_SUP = 2;
+const static int MINI_SUP = 60;
 /* global */
 static map<int,int> v;
+static int scpCounter;
 
 /* prototype declaring of functions */
 void scpSearch(Sensor (&)[M],vector<int>,vector<SCP>);
@@ -24,7 +25,9 @@ double deg2rad(double);
 void findingSCP(Sensor (&s)[M]){
 	vector<SCP> scp_init;
   vector<int> x;
+	scpCounter = 0;
   scpSearch(s,x,scp_init);
+	cout << scpCounter << " SCPs were found" << endl;
 }
 
 void scpSearch(Sensor (&s)[M], vector<int> x, vector<SCP> scp){
@@ -92,7 +95,6 @@ vector<int> getNeighbors(Sensor (&s)[M], vector<int> x){
   }else{
 		for(auto x_itr=x.begin();x_itr!=x.end();x_itr++){
 			for(int i=0;i<M;i++){
-				double h =dist(s[*x_itr].getLAT(),s[*x_itr].getLON(),s[i].getLAT(),s[i].getLON());
 				if(dist(s[*x_itr].getLAT(),s[*x_itr].getLON(),s[i].getLAT(),s[i].getLON()) <= H){
 				if(find(x.begin(),x.end(),i) == x.end()){
         if(find(neighbors.begin(),neighbors.end(),i) == neighbors.end()){
@@ -155,10 +157,11 @@ void outputSCP(vector<SCP> scp){
 		vector<double> lower = scp[i].getLOWER();
 		int sensor_num = int(sensors.size());
 		cout << "SCP( k = " << sensors.size() << " )" << endl;
+		scpCounter++;
 		for(int j=0;j<sensor_num;j++){
-			cout << "| s" << sensors[j] << " " << lower[j] << "[/h] ~ " << upper[j] << "[/h]" << endl;
+			//cout << "| s" << sensors[j] << " " << lower[j] << "[/h] ~ " << upper[j] << "[/h]" << endl;
 		}
-		cout << "| -------------------------------" << endl;
+		//cout << "| -------------------------------" << endl;
 	}
 }
 

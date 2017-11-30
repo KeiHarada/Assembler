@@ -16,7 +16,7 @@
 
 /* parameter */
 // the number of sensors
-const static int M = 10;
+const static int M = 180;
 // the number of measurements
 const static int N = 2048;
 
@@ -44,7 +44,6 @@ public:
   vector<int> getTIME();
   vector<int> getPM25();
   vector<int> getETS();
-	int getINTERVAL_END(int begin);
 	map<int,int> getINTERVAL();
 	int getSEGMENT_END(int begin);
 	map<int,int> getSEGMENT();
@@ -68,7 +67,6 @@ public:
 
 class SCP{
 private:
-	bool flag;
 	vector<int> timestamp;
 	vector<int> sensors;
 	vector<double> upper;
@@ -77,13 +75,11 @@ public:
 	/* constructor */
 	SCP();
 	/* accessor */
-	bool getFLAG();
 	vector<int> getTIMESTAMP();
 	vector<int> getSENSORS();
 	vector<double> getUPPER();
 	vector<double> getLOWER();
 	/* setter */
-	void setFLAG(bool T);
 	void setSENSOR(int number, double most, double least);
 	void remSENSOR();
 };

@@ -7,7 +7,7 @@ input.o: input.cpp
 Sensor.o: Sensor.cpp
 	g++ -Wall -c Sensor.cpp -o Sensor.o
 evolvingIntervalExtraction.o: evolvingIntervalExtraction.cpp
-	g++ -Wall -c evolvingIntervalExtraction.cpp -o evolvingIntervalExtraction.o
+	g++ -Wall -c evolvingIntervalExtraction.cpp -o extractingEvolvingInterval.o
 segmentingTimeSeries.o: segmentingTimeSeries.cpp
 	g++ -Wall -c segmentingTimeSeries.cpp -o segmentingTimeSeries.o
 clusteringSegment.o: clusteringSegment.cpp

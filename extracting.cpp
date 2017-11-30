@@ -3,14 +3,14 @@
 /* parameter */
 // threshold for wavelet coefficient
 const static double DELTA = 30.0;
-const static double MINI_LEVEL = 0.8;
+const static double MINI_LEVEL = 0.6; // we have to tune.
 
 /* prototype declaring of the functions */
 void wavelet(Sensor &,int,int);
 void identifyInterval(Sensor &);
 
 /* main */
-void evolvingIntervalExtraction(Sensor (&s)[M]){
+void extractingEvolvingInterval(Sensor (&s)[M]){
   int l = (int)(log2(N));
   int mini_level = l*MINI_LEVEL;
 

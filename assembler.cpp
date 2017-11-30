@@ -3,8 +3,8 @@
 /* prototype declaring of the functions*/
 void inputData(Sensor (&)[M]);
 void outputData(Sensor (&)[M]);
-void evolvingIntervalExtraction(Sensor (&)[M]);
-void evolvingIntervalSegmenting(Sensor (&)[M]);
+void extractingEvolvingInterval(Sensor (&)[M]);
+void segmentingEvolvingInterval(Sensor (&)[M]);
 void clusteringSegment(Sensor (&)[M]);
 void findingSCP(Sensor (&)[M]);
 
@@ -13,9 +13,9 @@ int main(){
 	Sensor sensor[M];
 	inputData(sensor);
 	cout << "sensor data have been inputted." << endl;
-	evolvingIntervalExtraction(sensor);
+	extractingEvolvingInterval(sensor);
 	cout << "evolving interval have been extracted." << endl;
-	evolvingIntervalSegmenting(sensor);
+	segmentingEvolvingInterval(sensor);
 	cout << "evolving interval have been segmented." << endl;
 	clusteringSegment(sensor);
 	cout << "the segments have been divided into some clusters" << endl;

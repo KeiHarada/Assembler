@@ -152,76 +152,76 @@ CMakeFiles/assembler.dir/input.cpp.obj.provides: CMakeFiles/assembler.dir/input.
 CMakeFiles/assembler.dir/input.cpp.obj.provides.build: CMakeFiles/assembler.dir/input.cpp.obj
 
 
-CMakeFiles/assembler.dir/evolvingIntervalExtraction.cpp.obj: CMakeFiles/assembler.dir/flags.make
-CMakeFiles/assembler.dir/evolvingIntervalExtraction.cpp.obj: ../evolvingIntervalExtraction.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\OnizukaLab\Documents\workspase\Assembler\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/assembler.dir/evolvingIntervalExtraction.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\assembler.dir\evolvingIntervalExtraction.cpp.obj -c C:\Users\OnizukaLab\Documents\workspase\Assembler\evolvingIntervalExtraction.cpp
+CMakeFiles/assembler.dir/extracting.cpp.obj: CMakeFiles/assembler.dir/flags.make
+CMakeFiles/assembler.dir/extracting.cpp.obj: ../extracting.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\OnizukaLab\Documents\workspase\Assembler\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/assembler.dir/extracting.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\assembler.dir\extracting.cpp.obj -c C:\Users\OnizukaLab\Documents\workspase\Assembler\extracting.cpp
 
-CMakeFiles/assembler.dir/evolvingIntervalExtraction.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/assembler.dir/evolvingIntervalExtraction.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\OnizukaLab\Documents\workspase\Assembler\evolvingIntervalExtraction.cpp > CMakeFiles\assembler.dir\evolvingIntervalExtraction.cpp.i
+CMakeFiles/assembler.dir/extracting.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/assembler.dir/extracting.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\OnizukaLab\Documents\workspase\Assembler\extracting.cpp > CMakeFiles\assembler.dir\extracting.cpp.i
 
-CMakeFiles/assembler.dir/evolvingIntervalExtraction.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/assembler.dir/evolvingIntervalExtraction.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\OnizukaLab\Documents\workspase\Assembler\evolvingIntervalExtraction.cpp -o CMakeFiles\assembler.dir\evolvingIntervalExtraction.cpp.s
+CMakeFiles/assembler.dir/extracting.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/assembler.dir/extracting.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\OnizukaLab\Documents\workspase\Assembler\extracting.cpp -o CMakeFiles\assembler.dir\extracting.cpp.s
 
-CMakeFiles/assembler.dir/evolvingIntervalExtraction.cpp.obj.requires:
+CMakeFiles/assembler.dir/extracting.cpp.obj.requires:
 
-.PHONY : CMakeFiles/assembler.dir/evolvingIntervalExtraction.cpp.obj.requires
+.PHONY : CMakeFiles/assembler.dir/extracting.cpp.obj.requires
 
-CMakeFiles/assembler.dir/evolvingIntervalExtraction.cpp.obj.provides: CMakeFiles/assembler.dir/evolvingIntervalExtraction.cpp.obj.requires
-	$(MAKE) -f CMakeFiles\assembler.dir\build.make CMakeFiles/assembler.dir/evolvingIntervalExtraction.cpp.obj.provides.build
-.PHONY : CMakeFiles/assembler.dir/evolvingIntervalExtraction.cpp.obj.provides
+CMakeFiles/assembler.dir/extracting.cpp.obj.provides: CMakeFiles/assembler.dir/extracting.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\assembler.dir\build.make CMakeFiles/assembler.dir/extracting.cpp.obj.provides.build
+.PHONY : CMakeFiles/assembler.dir/extracting.cpp.obj.provides
 
-CMakeFiles/assembler.dir/evolvingIntervalExtraction.cpp.obj.provides.build: CMakeFiles/assembler.dir/evolvingIntervalExtraction.cpp.obj
-
-
-CMakeFiles/assembler.dir/segmentingTimeSeries.cpp.obj: CMakeFiles/assembler.dir/flags.make
-CMakeFiles/assembler.dir/segmentingTimeSeries.cpp.obj: ../segmentingTimeSeries.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\OnizukaLab\Documents\workspase\Assembler\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/assembler.dir/segmentingTimeSeries.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\assembler.dir\segmentingTimeSeries.cpp.obj -c C:\Users\OnizukaLab\Documents\workspase\Assembler\segmentingTimeSeries.cpp
-
-CMakeFiles/assembler.dir/segmentingTimeSeries.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/assembler.dir/segmentingTimeSeries.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\OnizukaLab\Documents\workspase\Assembler\segmentingTimeSeries.cpp > CMakeFiles\assembler.dir\segmentingTimeSeries.cpp.i
-
-CMakeFiles/assembler.dir/segmentingTimeSeries.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/assembler.dir/segmentingTimeSeries.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\OnizukaLab\Documents\workspase\Assembler\segmentingTimeSeries.cpp -o CMakeFiles\assembler.dir\segmentingTimeSeries.cpp.s
-
-CMakeFiles/assembler.dir/segmentingTimeSeries.cpp.obj.requires:
-
-.PHONY : CMakeFiles/assembler.dir/segmentingTimeSeries.cpp.obj.requires
-
-CMakeFiles/assembler.dir/segmentingTimeSeries.cpp.obj.provides: CMakeFiles/assembler.dir/segmentingTimeSeries.cpp.obj.requires
-	$(MAKE) -f CMakeFiles\assembler.dir\build.make CMakeFiles/assembler.dir/segmentingTimeSeries.cpp.obj.provides.build
-.PHONY : CMakeFiles/assembler.dir/segmentingTimeSeries.cpp.obj.provides
-
-CMakeFiles/assembler.dir/segmentingTimeSeries.cpp.obj.provides.build: CMakeFiles/assembler.dir/segmentingTimeSeries.cpp.obj
+CMakeFiles/assembler.dir/extracting.cpp.obj.provides.build: CMakeFiles/assembler.dir/extracting.cpp.obj
 
 
-CMakeFiles/assembler.dir/clusteringSegment.cpp.obj: CMakeFiles/assembler.dir/flags.make
-CMakeFiles/assembler.dir/clusteringSegment.cpp.obj: ../clusteringSegment.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\OnizukaLab\Documents\workspase\Assembler\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/assembler.dir/clusteringSegment.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\assembler.dir\clusteringSegment.cpp.obj -c C:\Users\OnizukaLab\Documents\workspase\Assembler\clusteringSegment.cpp
+CMakeFiles/assembler.dir/segmenting.cpp.obj: CMakeFiles/assembler.dir/flags.make
+CMakeFiles/assembler.dir/segmenting.cpp.obj: ../segmenting.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\OnizukaLab\Documents\workspase\Assembler\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/assembler.dir/segmenting.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\assembler.dir\segmenting.cpp.obj -c C:\Users\OnizukaLab\Documents\workspase\Assembler\segmenting.cpp
 
-CMakeFiles/assembler.dir/clusteringSegment.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/assembler.dir/clusteringSegment.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\OnizukaLab\Documents\workspase\Assembler\clusteringSegment.cpp > CMakeFiles\assembler.dir\clusteringSegment.cpp.i
+CMakeFiles/assembler.dir/segmenting.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/assembler.dir/segmenting.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\OnizukaLab\Documents\workspase\Assembler\segmenting.cpp > CMakeFiles\assembler.dir\segmenting.cpp.i
 
-CMakeFiles/assembler.dir/clusteringSegment.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/assembler.dir/clusteringSegment.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\OnizukaLab\Documents\workspase\Assembler\clusteringSegment.cpp -o CMakeFiles\assembler.dir\clusteringSegment.cpp.s
+CMakeFiles/assembler.dir/segmenting.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/assembler.dir/segmenting.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\OnizukaLab\Documents\workspase\Assembler\segmenting.cpp -o CMakeFiles\assembler.dir\segmenting.cpp.s
 
-CMakeFiles/assembler.dir/clusteringSegment.cpp.obj.requires:
+CMakeFiles/assembler.dir/segmenting.cpp.obj.requires:
 
-.PHONY : CMakeFiles/assembler.dir/clusteringSegment.cpp.obj.requires
+.PHONY : CMakeFiles/assembler.dir/segmenting.cpp.obj.requires
 
-CMakeFiles/assembler.dir/clusteringSegment.cpp.obj.provides: CMakeFiles/assembler.dir/clusteringSegment.cpp.obj.requires
-	$(MAKE) -f CMakeFiles\assembler.dir\build.make CMakeFiles/assembler.dir/clusteringSegment.cpp.obj.provides.build
-.PHONY : CMakeFiles/assembler.dir/clusteringSegment.cpp.obj.provides
+CMakeFiles/assembler.dir/segmenting.cpp.obj.provides: CMakeFiles/assembler.dir/segmenting.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\assembler.dir\build.make CMakeFiles/assembler.dir/segmenting.cpp.obj.provides.build
+.PHONY : CMakeFiles/assembler.dir/segmenting.cpp.obj.provides
 
-CMakeFiles/assembler.dir/clusteringSegment.cpp.obj.provides.build: CMakeFiles/assembler.dir/clusteringSegment.cpp.obj
+CMakeFiles/assembler.dir/segmenting.cpp.obj.provides.build: CMakeFiles/assembler.dir/segmenting.cpp.obj
+
+
+CMakeFiles/assembler.dir/clustering.cpp.obj: CMakeFiles/assembler.dir/flags.make
+CMakeFiles/assembler.dir/clustering.cpp.obj: ../clustering.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\OnizukaLab\Documents\workspase\Assembler\cmake-build-release\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/assembler.dir/clustering.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\assembler.dir\clustering.cpp.obj -c C:\Users\OnizukaLab\Documents\workspase\Assembler\clustering.cpp
+
+CMakeFiles/assembler.dir/clustering.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/assembler.dir/clustering.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\OnizukaLab\Documents\workspase\Assembler\clustering.cpp > CMakeFiles\assembler.dir\clustering.cpp.i
+
+CMakeFiles/assembler.dir/clustering.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/assembler.dir/clustering.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\OnizukaLab\Documents\workspase\Assembler\clustering.cpp -o CMakeFiles\assembler.dir\clustering.cpp.s
+
+CMakeFiles/assembler.dir/clustering.cpp.obj.requires:
+
+.PHONY : CMakeFiles/assembler.dir/clustering.cpp.obj.requires
+
+CMakeFiles/assembler.dir/clustering.cpp.obj.provides: CMakeFiles/assembler.dir/clustering.cpp.obj.requires
+	$(MAKE) -f CMakeFiles\assembler.dir\build.make CMakeFiles/assembler.dir/clustering.cpp.obj.provides.build
+.PHONY : CMakeFiles/assembler.dir/clustering.cpp.obj.provides
+
+CMakeFiles/assembler.dir/clustering.cpp.obj.provides.build: CMakeFiles/assembler.dir/clustering.cpp.obj
 
 
 CMakeFiles/assembler.dir/scpSearch.cpp.obj: CMakeFiles/assembler.dir/flags.make
@@ -278,9 +278,9 @@ assembler_OBJECTS = \
 "CMakeFiles/assembler.dir/Sensor.cpp.obj" \
 "CMakeFiles/assembler.dir/SCP.cpp.obj" \
 "CMakeFiles/assembler.dir/input.cpp.obj" \
-"CMakeFiles/assembler.dir/evolvingIntervalExtraction.cpp.obj" \
-"CMakeFiles/assembler.dir/segmentingTimeSeries.cpp.obj" \
-"CMakeFiles/assembler.dir/clusteringSegment.cpp.obj" \
+"CMakeFiles/assembler.dir/extracting.cpp.obj" \
+"CMakeFiles/assembler.dir/segmenting.cpp.obj" \
+"CMakeFiles/assembler.dir/clustering.cpp.obj" \
 "CMakeFiles/assembler.dir/scpSearch.cpp.obj" \
 "CMakeFiles/assembler.dir/output.cpp.obj"
 
@@ -291,9 +291,9 @@ assembler.exe: CMakeFiles/assembler.dir/assembler.cpp.obj
 assembler.exe: CMakeFiles/assembler.dir/Sensor.cpp.obj
 assembler.exe: CMakeFiles/assembler.dir/SCP.cpp.obj
 assembler.exe: CMakeFiles/assembler.dir/input.cpp.obj
-assembler.exe: CMakeFiles/assembler.dir/evolvingIntervalExtraction.cpp.obj
-assembler.exe: CMakeFiles/assembler.dir/segmentingTimeSeries.cpp.obj
-assembler.exe: CMakeFiles/assembler.dir/clusteringSegment.cpp.obj
+assembler.exe: CMakeFiles/assembler.dir/extracting.cpp.obj
+assembler.exe: CMakeFiles/assembler.dir/segmenting.cpp.obj
+assembler.exe: CMakeFiles/assembler.dir/clustering.cpp.obj
 assembler.exe: CMakeFiles/assembler.dir/scpSearch.cpp.obj
 assembler.exe: CMakeFiles/assembler.dir/output.cpp.obj
 assembler.exe: CMakeFiles/assembler.dir/build.make
@@ -312,9 +312,9 @@ CMakeFiles/assembler.dir/requires: CMakeFiles/assembler.dir/assembler.cpp.obj.re
 CMakeFiles/assembler.dir/requires: CMakeFiles/assembler.dir/Sensor.cpp.obj.requires
 CMakeFiles/assembler.dir/requires: CMakeFiles/assembler.dir/SCP.cpp.obj.requires
 CMakeFiles/assembler.dir/requires: CMakeFiles/assembler.dir/input.cpp.obj.requires
-CMakeFiles/assembler.dir/requires: CMakeFiles/assembler.dir/evolvingIntervalExtraction.cpp.obj.requires
-CMakeFiles/assembler.dir/requires: CMakeFiles/assembler.dir/segmentingTimeSeries.cpp.obj.requires
-CMakeFiles/assembler.dir/requires: CMakeFiles/assembler.dir/clusteringSegment.cpp.obj.requires
+CMakeFiles/assembler.dir/requires: CMakeFiles/assembler.dir/extracting.cpp.obj.requires
+CMakeFiles/assembler.dir/requires: CMakeFiles/assembler.dir/segmenting.cpp.obj.requires
+CMakeFiles/assembler.dir/requires: CMakeFiles/assembler.dir/clustering.cpp.obj.requires
 CMakeFiles/assembler.dir/requires: CMakeFiles/assembler.dir/scpSearch.cpp.obj.requires
 CMakeFiles/assembler.dir/requires: CMakeFiles/assembler.dir/output.cpp.obj.requires
 

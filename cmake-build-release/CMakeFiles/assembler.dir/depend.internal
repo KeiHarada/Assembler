@@ -10,12 +10,12 @@ CMakeFiles/assembler.dir/Sensor.cpp.obj
 CMakeFiles/assembler.dir/assembler.cpp.obj
  C:/Users/OnizukaLab/Documents/workspase/Assembler/assembler.cpp
  C:/Users/OnizukaLab/Documents/workspase/Assembler/assembler.hpp
-CMakeFiles/assembler.dir/clusteringSegment.cpp.obj
+CMakeFiles/assembler.dir/clustering.cpp.obj
  C:/Users/OnizukaLab/Documents/workspase/Assembler/assembler.hpp
- C:/Users/OnizukaLab/Documents/workspase/Assembler/clusteringSegment.cpp
-CMakeFiles/assembler.dir/evolvingIntervalExtraction.cpp.obj
+ C:/Users/OnizukaLab/Documents/workspase/Assembler/clustering.cpp
+CMakeFiles/assembler.dir/extracting.cpp.obj
  C:/Users/OnizukaLab/Documents/workspase/Assembler/assembler.hpp
- C:/Users/OnizukaLab/Documents/workspase/Assembler/evolvingIntervalExtraction.cpp
+ C:/Users/OnizukaLab/Documents/workspase/Assembler/extracting.cpp
 CMakeFiles/assembler.dir/input.cpp.obj
  C:/Users/OnizukaLab/Documents/workspase/Assembler/assembler.hpp
  C:/Users/OnizukaLab/Documents/workspase/Assembler/input.cpp
@@ -25,6 +25,6 @@ CMakeFiles/assembler.dir/output.cpp.obj
 CMakeFiles/assembler.dir/scpSearch.cpp.obj
  C:/Users/OnizukaLab/Documents/workspase/Assembler/assembler.hpp
  C:/Users/OnizukaLab/Documents/workspase/Assembler/scpSearch.cpp
-CMakeFiles/assembler.dir/segmentingTimeSeries.cpp.obj
+CMakeFiles/assembler.dir/segmenting.cpp.obj
  C:/Users/OnizukaLab/Documents/workspase/Assembler/assembler.hpp
- C:/Users/OnizukaLab/Documents/workspase/Assembler/segmentingTimeSeries.cpp
+ C:/Users/OnizukaLab/Documents/workspase/Assembler/segmenting.cpp

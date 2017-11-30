@@ -94,10 +94,10 @@
 		<Unit filename="C:/Users/OnizukaLab/Documents/workspase/Assembler/assembler.hpp">
 			<Option target="assembler"/>
 		</Unit>
-		<Unit filename="C:/Users/OnizukaLab/Documents/workspase/Assembler/clusteringSegment.cpp">
+		<Unit filename="C:/Users/OnizukaLab/Documents/workspase/Assembler/clustering.cpp">
 			<Option target="assembler"/>
 		</Unit>
-		<Unit filename="C:/Users/OnizukaLab/Documents/workspase/Assembler/evolvingIntervalExtraction.cpp">
+		<Unit filename="C:/Users/OnizukaLab/Documents/workspase/Assembler/extracting.cpp">
 			<Option target="assembler"/>
 		</Unit>
 		<Unit filename="C:/Users/OnizukaLab/Documents/workspase/Assembler/input.cpp">
@@ -109,7 +109,7 @@
 		<Unit filename="C:/Users/OnizukaLab/Documents/workspase/Assembler/scpSearch.cpp">
 			<Option target="assembler"/>
 		</Unit>
-		<Unit filename="C:/Users/OnizukaLab/Documents/workspase/Assembler/segmentingTimeSeries.cpp">
+		<Unit filename="C:/Users/OnizukaLab/Documents/workspase/Assembler/segmenting.cpp">
 			<Option target="assembler"/>
 		</Unit>
 		<Unit filename="C:/Users/OnizukaLab/Documents/workspase/Assembler/CMakeLists.txt">

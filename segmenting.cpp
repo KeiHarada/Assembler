@@ -2,14 +2,14 @@
 
 /* parameter */
 // threshold for segmenting time series
-const static double MAX_ERROR = 30.0;
+const static double MAX_ERROR = 30.0; // we have to tune.
 
 /* prototype declaring of the functions */
 void segmenting(Sensor &,int,int);
 int isZero(double);
 
 /* main */
-void evolvingIntervalSegmenting(Sensor (&s)[M]){
+void segmentingEvolvingInterval(Sensor (&s)[M]){
   for(int m=0;m<M;m++){
     map<int,int> interval = s[m].getINTERVAL();
     auto itr = interval.begin();
@@ -43,7 +43,7 @@ void segmenting(Sensor &s, int begin, int end){
     int  cost_mini = distance(cost.begin(),cost_itr);
     auto seg_itr = seg.find(begin+cost_mini);
     int seg_mini = seg_itr->first;
-    while(cost[cost_mini] < MAX_ERROR && int(cost.size()) > 0){ // MAX_ERROR is defined in header file
+    while(cost[cost_mini] < MAX_ERROR && int(cost.size()) > 0){
       /* update seg[begin+mini] */
       int next = seg[seg[seg_mini]];
       seg.erase(seg[seg_mini]);
@@ -69,7 +69,7 @@ void segmenting(Sensor &s, int begin, int end){
         cost[cost_mini] = abs(prev-current);
       }
 
-      /* re-calcurate minimum cost */
+      /* re-calculate minimum cost */
       cost_itr = min_element(cost.begin(),cost.end());
       cost_mini = distance(cost.begin(),cost_itr);
       seg_itr = seg.lower_bound(begin+cost_mini);
@@ -77,7 +77,6 @@ void segmenting(Sensor &s, int begin, int end){
     }
 
     /* set segments on this interval */
-    double delta = 0.00000001;
     for(auto itr = seg.begin();itr != seg.end();itr++){
       double slope = double(s.getPM25()[itr->second]-s.getPM25()[itr->first])/(itr->second-itr->first);
       // if the slope value doesn't equal to zero

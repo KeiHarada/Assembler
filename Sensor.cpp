@@ -10,7 +10,6 @@ double Sensor::getLON(){ return lon; }
 vector<int> Sensor::getTIME(){ return time; }
 vector<int> Sensor::getPM25(){ return pm25; }
 vector<int> Sensor::getETS(){ return ets; }
-int Sensor::getINTERVAL_END(int begin){ return interval[begin]; }
 map<int,int> Sensor::getINTERVAL(){ return interval; }
 int Sensor::getSEGMENT_END(int begin){ return segment[begin]; }
 map<int,int> Sensor::getSEGMENT(){ return segment; }

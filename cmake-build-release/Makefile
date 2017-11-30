@@ -203,59 +203,59 @@ assembler.cpp.s:
 	$(MAKE) -f CMakeFiles\assembler.dir\build.make CMakeFiles/assembler.dir/assembler.cpp.s
 .PHONY : assembler.cpp.s
 
-clusteringSegment.obj: clusteringSegment.cpp.obj
+clustering.obj: clustering.cpp.obj
 
-.PHONY : clusteringSegment.obj
-
-# target to build an object file
-clusteringSegment.cpp.obj:
-	$(MAKE) -f CMakeFiles\assembler.dir\build.make CMakeFiles/assembler.dir/clusteringSegment.cpp.obj
-.PHONY : clusteringSegment.cpp.obj
-
-clusteringSegment.i: clusteringSegment.cpp.i
-
-.PHONY : clusteringSegment.i
-
-# target to preprocess a source file
-clusteringSegment.cpp.i:
-	$(MAKE) -f CMakeFiles\assembler.dir\build.make CMakeFiles/assembler.dir/clusteringSegment.cpp.i
-.PHONY : clusteringSegment.cpp.i
-
-clusteringSegment.s: clusteringSegment.cpp.s
-
-.PHONY : clusteringSegment.s
-
-# target to generate assembly for a file
-clusteringSegment.cpp.s:
-	$(MAKE) -f CMakeFiles\assembler.dir\build.make CMakeFiles/assembler.dir/clusteringSegment.cpp.s
-.PHONY : clusteringSegment.cpp.s
-
-evolvingIntervalExtraction.obj: evolvingIntervalExtraction.cpp.obj
-
-.PHONY : evolvingIntervalExtraction.obj
+.PHONY : clustering.obj
 
 # target to build an object file
-evolvingIntervalExtraction.cpp.obj:
-	$(MAKE) -f CMakeFiles\assembler.dir\build.make CMakeFiles/assembler.dir/evolvingIntervalExtraction.cpp.obj
-.PHONY : evolvingIntervalExtraction.cpp.obj
+clustering.cpp.obj:
+	$(MAKE) -f CMakeFiles\assembler.dir\build.make CMakeFiles/assembler.dir/clustering.cpp.obj
+.PHONY : clustering.cpp.obj
 
-evolvingIntervalExtraction.i: evolvingIntervalExtraction.cpp.i
+clustering.i: clustering.cpp.i
 
-.PHONY : evolvingIntervalExtraction.i
+.PHONY : clustering.i
 
 # target to preprocess a source file
-evolvingIntervalExtraction.cpp.i:
-	$(MAKE) -f CMakeFiles\assembler.dir\build.make CMakeFiles/assembler.dir/evolvingIntervalExtraction.cpp.i
-.PHONY : evolvingIntervalExtraction.cpp.i
+clustering.cpp.i:
+	$(MAKE) -f CMakeFiles\assembler.dir\build.make CMakeFiles/assembler.dir/clustering.cpp.i
+.PHONY : clustering.cpp.i
 
-evolvingIntervalExtraction.s: evolvingIntervalExtraction.cpp.s
+clustering.s: clustering.cpp.s
 
-.PHONY : evolvingIntervalExtraction.s
+.PHONY : clustering.s
 
 # target to generate assembly for a file
-evolvingIntervalExtraction.cpp.s:
-	$(MAKE) -f CMakeFiles\assembler.dir\build.make CMakeFiles/assembler.dir/evolvingIntervalExtraction.cpp.s
-.PHONY : evolvingIntervalExtraction.cpp.s
+clustering.cpp.s:
+	$(MAKE) -f CMakeFiles\assembler.dir\build.make CMakeFiles/assembler.dir/clustering.cpp.s
+.PHONY : clustering.cpp.s
+
+extracting.obj: extracting.cpp.obj
+
+.PHONY : extracting.obj
+
+# target to build an object file
+extracting.cpp.obj:
+	$(MAKE) -f CMakeFiles\assembler.dir\build.make CMakeFiles/assembler.dir/extracting.cpp.obj
+.PHONY : extracting.cpp.obj
+
+extracting.i: extracting.cpp.i
+
+.PHONY : extracting.i
+
+# target to preprocess a source file
+extracting.cpp.i:
+	$(MAKE) -f CMakeFiles\assembler.dir\build.make CMakeFiles/assembler.dir/extracting.cpp.i
+.PHONY : extracting.cpp.i
+
+extracting.s: extracting.cpp.s
+
+.PHONY : extracting.s
+
+# target to generate assembly for a file
+extracting.cpp.s:
+	$(MAKE) -f CMakeFiles\assembler.dir\build.make CMakeFiles/assembler.dir/extracting.cpp.s
+.PHONY : extracting.cpp.s
 
 input.obj: input.cpp.obj
 
@@ -338,32 +338,32 @@ scpSearch.cpp.s:
 	$(MAKE) -f CMakeFiles\assembler.dir\build.make CMakeFiles/assembler.dir/scpSearch.cpp.s
 .PHONY : scpSearch.cpp.s
 
-segmentingTimeSeries.obj: segmentingTimeSeries.cpp.obj
+segmenting.obj: segmenting.cpp.obj
 
-.PHONY : segmentingTimeSeries.obj
+.PHONY : segmenting.obj
 
 # target to build an object file
-segmentingTimeSeries.cpp.obj:
-	$(MAKE) -f CMakeFiles\assembler.dir\build.make CMakeFiles/assembler.dir/segmentingTimeSeries.cpp.obj
-.PHONY : segmentingTimeSeries.cpp.obj
+segmenting.cpp.obj:
+	$(MAKE) -f CMakeFiles\assembler.dir\build.make CMakeFiles/assembler.dir/segmenting.cpp.obj
+.PHONY : segmenting.cpp.obj
 
-segmentingTimeSeries.i: segmentingTimeSeries.cpp.i
+segmenting.i: segmenting.cpp.i
 
-.PHONY : segmentingTimeSeries.i
+.PHONY : segmenting.i
 
 # target to preprocess a source file
-segmentingTimeSeries.cpp.i:
-	$(MAKE) -f CMakeFiles\assembler.dir\build.make CMakeFiles/assembler.dir/segmentingTimeSeries.cpp.i
-.PHONY : segmentingTimeSeries.cpp.i
+segmenting.cpp.i:
+	$(MAKE) -f CMakeFiles\assembler.dir\build.make CMakeFiles/assembler.dir/segmenting.cpp.i
+.PHONY : segmenting.cpp.i
 
-segmentingTimeSeries.s: segmentingTimeSeries.cpp.s
+segmenting.s: segmenting.cpp.s
 
-.PHONY : segmentingTimeSeries.s
+.PHONY : segmenting.s
 
 # target to generate assembly for a file
-segmentingTimeSeries.cpp.s:
-	$(MAKE) -f CMakeFiles\assembler.dir\build.make CMakeFiles/assembler.dir/segmentingTimeSeries.cpp.s
-.PHONY : segmentingTimeSeries.cpp.s
+segmenting.cpp.s:
+	$(MAKE) -f CMakeFiles\assembler.dir\build.make CMakeFiles/assembler.dir/segmenting.cpp.s
+.PHONY : segmenting.cpp.s
 
 # Help Target
 help:
@@ -383,12 +383,12 @@ help:
 	@echo ... assembler.obj
 	@echo ... assembler.i
 	@echo ... assembler.s
-	@echo ... clusteringSegment.obj
-	@echo ... clusteringSegment.i
-	@echo ... clusteringSegment.s
-	@echo ... evolvingIntervalExtraction.obj
-	@echo ... evolvingIntervalExtraction.i
-	@echo ... evolvingIntervalExtraction.s
+	@echo ... clustering.obj
+	@echo ... clustering.i
+	@echo ... clustering.s
+	@echo ... extracting.obj
+	@echo ... extracting.i
+	@echo ... extracting.s
 	@echo ... input.obj
 	@echo ... input.i
 	@echo ... input.s
@@ -398,9 +398,9 @@ help:
 	@echo ... scpSearch.obj
 	@echo ... scpSearch.i
 	@echo ... scpSearch.s
-	@echo ... segmentingTimeSeries.obj
-	@echo ... segmentingTimeSeries.i
-	@echo ... segmentingTimeSeries.s
+	@echo ... segmenting.obj
+	@echo ... segmenting.i
+	@echo ... segmenting.s
 .PHONY : help
 
 

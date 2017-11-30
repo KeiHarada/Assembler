@@ -1,20 +1,15 @@
 #include "assembler.hpp"
 
 /* constructor */
-SCP::SCP(){ flag = false; }
+SCP::SCP(){ }
 
 /* accessor */
-bool SCP::getFLAG(){ return flag; }
 vector<int> SCP::getTIMESTAMP(){ return timestamp; }
 vector<int> SCP::getSENSORS(){ return sensors; }
 vector<double> SCP::getUPPER(){ return upper; }
 vector<double> SCP::getLOWER(){ return lower; }
 
 /* setter */
-void SCP::setFLAG(bool T){
-	flag = T;
-}
-
 void SCP::setSENSOR(int number, double most, double least){
 	sensors.push_back(number);
 	upper.push_back(most);

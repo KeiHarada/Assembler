@@ -8,9 +8,9 @@ add_executable( ${PROJECT_NAME}
                 Sensor.cpp
                 SCP.cpp
                 input.cpp
-                evolvingIntervalExtraction.cpp
-                segmentingTimeSeries.cpp
-                clusteringSegment.cpp
+                extracting.cpp
+                segmenting.cpp
+                clustering.cpp
                 scpSearch.cpp
                 output.cpp
                 )
