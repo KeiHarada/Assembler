@@ -3,7 +3,7 @@
 /* parameter */
 // threshold for wavelet coefficient
 const static double DELTA = 30.0;
-const static double MINI_LEVEL = 0.6; // we have to tune.
+const static double MINI_LEVEL = 0.6; // have to tune.
 
 /* prototype declaring of the functions */
 void wavelet(Sensor &,int,int);

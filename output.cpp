@@ -91,6 +91,7 @@ void showEvolvingSegment(Sensor s){
 }
 
 void showSegmentCluster(Sensor s){
+	map<int,int> segment = s.getSEGMENT();
   multimap<int,int> cluster = s.getCLUSTER_FINAL();
   auto cluster_itr = cluster.begin();
   int prev = -1;
@@ -117,14 +118,14 @@ void showSegmentCluster(Sensor s){
 
 void exportCsvFile(Sensor (&s)[M]){
   int start, end;
-  string path = "C:\\Users\\OnizukaLab\\Documents\\workspase\\SantanderSTDM\\output\\";
+  string path = "C:\\Users\\OnizukaLab\\Documents\\workspase\\Assembler\\output\\";
   cout << "please specify the range of sensor number ( 0 ~ 179 )" << endl;
   cout << "start = ";
   cin >> start;
   cout << "end = ";
   cin >> end;
   if(0<=start && start<=179 && 0<=end && end<=179){
-    cout << "exorting ... ";
+    cout << "exporting ... ";
     ofstream ofs(path+"data_"+to_string(start)+"-"+to_string(end)+".csv");
     if(!ofs){
       cout << "failed to open the file" << endl;

@@ -40,11 +40,11 @@ map
 algorithm
 -
 
-C:/Users/OnizukaLab/Documents/workspase/Assembler/clusteringSegment.cpp
+C:/Users/OnizukaLab/Documents/workspase/Assembler/clustering.cpp
 assembler.hpp
 C:/Users/OnizukaLab/Documents/workspase/Assembler/assembler.hpp
 
-C:/Users/OnizukaLab/Documents/workspase/Assembler/evolvingIntervalExtraction.cpp
+C:/Users/OnizukaLab/Documents/workspase/Assembler/extracting.cpp
 assembler.hpp
 C:/Users/OnizukaLab/Documents/workspase/Assembler/assembler.hpp
 
@@ -60,7 +60,7 @@ C:/Users/OnizukaLab/Documents/workspase/Assembler/scpSearch.cpp
 assembler.hpp
 C:/Users/OnizukaLab/Documents/workspase/Assembler/assembler.hpp
 
-C:/Users/OnizukaLab/Documents/workspase/Assembler/segmentingTimeSeries.cpp
+C:/Users/OnizukaLab/Documents/workspase/Assembler/segmenting.cpp
 assembler.hpp
 C:/Users/OnizukaLab/Documents/workspase/Assembler/assembler.hpp
 

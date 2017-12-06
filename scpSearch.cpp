@@ -74,6 +74,7 @@ void intersecting(Sensor (&s)[M], vector<int> graph, vector<int> timestamp1, int
 		vector<int> timestamp2 = s[graph[graph_index]].getCLUSTER_TIMESTAMP(cluster);
 		vector<int> intersection;
 		set_intersection(timestamp1.begin(),timestamp1.end(),timestamp2.begin(),timestamp2.end(),inserter(intersection,intersection.end()));
+		//if(graph_index == graph.size()-1 && intersection.size() >= MINI_SUP) cout << intersection.size() << endl;
 		if(int(intersection.size()) >= MINI_SUP){
 			scp.setSENSOR(graph[graph_index],s[graph[graph_index]].getUPPER(cluster),s[graph[graph_index]].getLOWER(cluster));
 			if(graph_index+1 < int(graph.size())){
@@ -159,9 +160,9 @@ void outputSCP(vector<SCP> scp){
 		cout << "SCP( k = " << sensors.size() << " )" << endl;
 		scpCounter++;
 		for(int j=0;j<sensor_num;j++){
-			//cout << "| s" << sensors[j] << " " << lower[j] << "[/h] ~ " << upper[j] << "[/h]" << endl;
+			cout << "| s" << sensors[j] << " " << lower[j] << "[/h] ~ " << upper[j] << "[/h]" << endl;
 		}
-		//cout << "| -------------------------------" << endl;
+		cout << "| -------------------------------" << endl;
 	}
 }
 

@@ -2,6 +2,7 @@
 
 /* prototype declaring of the functions */
 int makeTimestamp(string);
+int changeSign(double,double);
 
 /* accessor*/
 int Sensor::getID(){ return id; }
@@ -61,7 +62,7 @@ int Sensor::setDATA(int sensorID, string str){
   int column = 0;
   string token;
   istringstream stream(str);
-  while(getline(stream,token,',')){
+  while(getline(stream,token,'\t')){
     switch(column){
       case 0:
         if(stoi(token) == sensorID){
@@ -132,7 +133,7 @@ void Sensor::fixCLUSTER(int theta_c, double delta_c){
 		if(max < slope[cluster_itr->second]) max = slope[cluster_itr->second];
 		cluster_final.insert(make_pair(mode,cluster_itr->second));
 		cluster_itr++;
-		if(fabs(cluster_itr->first-prev) > delta_c || cluster_itr == cluster.end()){
+		if(fabs(cluster_itr->first-prev) > delta_c || changeSign(cluster_itr->first,prev) == 1 || cluster_itr == cluster.end()){
       if(count < theta_c) {
         cluster_final.erase(mode);
 				mode--;
@@ -147,4 +148,12 @@ void Sensor::fixCLUSTER(int theta_c, double delta_c){
       prev = cluster_itr->first;
 		}
   }
+}
+
+int changeSign(double a, double b){
+	if((a>=0)==(b>=0)){
+		return 0;
+	}else{
+		return 1;
+	}
 }
